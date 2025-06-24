@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 st.set_page_config(page_title="Elabora File Excel Multipli", layout="centered")
-st.title("📂 Preparazione file per RentGer")
+st.title("📂 Preparazione file per RentGer - v.1.1")
 
 uploaded_files = st.file_uploader(
     "Carica uno o più file Excel", type=["xlsx"], accept_multiple_files=True
@@ -43,7 +43,7 @@ if uploaded_files:
                 df.iloc[:, 18].fillna("").astype(str) + " - " +
                 df.iloc[:, 10].fillna("").astype(str) + " - " +
                 df.iloc[:, 11].fillna("").astype(str)
-            ).str.strip(" -")
+            ).str.strip(" -").str.upper()
 
             # Costruzione DataFrame finale
             final_df = pd.DataFrame({
