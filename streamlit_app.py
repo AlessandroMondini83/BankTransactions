@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 st.set_page_config(page_title="Elabora File Excel Multipli", layout="centered")
-st.title("📂 Preparazione file per RentGer")
+st.title("📂 222 Preparazione file per RentGer")
 
 uploaded_files = st.file_uploader(
     "Carica uno o più file Excel", type=["xlsx"], accept_multiple_files=True
@@ -53,7 +53,9 @@ if uploaded_files:
                 "Descrizione Estesa": descrizione,
             })
             final_df["Bilancio"] = 0
-
+             # 🔽 Rimuove le righe con Quantità pari a -0.50
+            final_df = final_df[final_df["Quantità"] != -0.50]
+            
             all_dfs.append(final_df)
 
         except Exception:
@@ -77,3 +79,6 @@ if uploaded_files:
 
         with open(output_file, "rb") as f:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
+
+st.markdown("---")
+st.caption("🔧 Versione: v1.0.2 – Ultimo aggiornamento: Luglio 2025")
