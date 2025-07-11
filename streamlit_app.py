@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 st.set_page_config(page_title="Elabora File Excel Multipli", layout="centered")
-st.title("📂 aaa Preparazione file per RentGer")
+st.title("📂 Preparazione file per RentGer")
 
 uploaded_files = st.file_uploader(
     "Carica uno o più file Excel", type=["xlsx"], accept_multiple_files=True
