@@ -26,11 +26,9 @@ if uploaded_files:
 
             # Filtra righe con date valide nella seconda colonna
             df = df[df.iloc[:, 1].apply(is_valid_date)].copy()
-            # Converti in int, se necessario (es. ' 16 ' → 16)
-            df.iloc[:, 5] = pd.to_numeric(df.iloc[:, 5], errors='coerce')
-
+           
             # Poi filtra
-            df = df[df.iloc[:, 5] != 16].copy()
+            df = df[df.iloc[:, 6] != '14 - Cedole, dividendi e premi estratti'].copy()
             
             # Converte date
             df.iloc[:, 1] = df.iloc[:, 1].apply(
