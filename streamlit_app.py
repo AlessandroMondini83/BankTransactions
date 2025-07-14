@@ -28,7 +28,7 @@ if uploaded_files:
             df = df[df.iloc[:, 1].apply(is_valid_date)].copy()
            
             # Poi filtra
-            df = df[df.iloc[:, 6] != '14 - Cedole, dividendi e premi estratti'].copy()
+            df = df[df.iloc[:, 6].astype(str) != '14 - Cedole, dividendi e premi estratti'].copy()
             
             # Converte date
             df.iloc[:, 1] = df.iloc[:, 1].apply(
