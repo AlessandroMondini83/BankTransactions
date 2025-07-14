@@ -30,7 +30,7 @@ if uploaded_files:
             df.iloc[:, 5] = pd.to_numeric(df.iloc[:, 5], errors='coerce')
 
             # Poi filtra
-            df = df[df.iloc[:, 5] == 16].copy()
+            df = df[df.iloc[:, 5] != 16].copy()
             
             # Converte date
             df.iloc[:, 1] = df.iloc[:, 1].apply(
@@ -86,4 +86,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.1.0 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.1.1 – Ultimo aggiornamento: Luglio 2025")
