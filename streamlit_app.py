@@ -58,6 +58,7 @@ if uploaded_files:
             final_df["Bilancio"] = 0
              # 🔽 Rimuove le righe con Quantità pari a -0.50 e -1.30
             final_df = final_df[final_df["Quantità"] != -0.50]
+            final_df = final_df[final_df["Quantità"] != -1.25]
             final_df = final_df[final_df["Quantità"] != -1.30]
             all_dfs.append(final_df)
 
@@ -84,4 +85,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.1.1 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.1.2 – Ultimo aggiornamento: Luglio 2025")
