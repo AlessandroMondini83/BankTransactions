@@ -86,4 +86,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.0.3 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.1.0 – Ultimo aggiornamento: Luglio 2025")
