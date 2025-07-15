@@ -36,7 +36,7 @@ if uploaded_files:
                     '19 - Imposte e tasse',
                     '83 - Sottoscrizione titoli e/o fondi comuni',
                     'ZH - Rimborso titoli e/o fondi comuni'
-            ])].copy()
+                ])].copy()
 
             
             # Converte date
@@ -94,4 +94,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.2.0 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.2.1 – Ultimo aggiornamento: Luglio 2025")
