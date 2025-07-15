@@ -29,7 +29,7 @@ if uploaded_files:
             # Filtra righe con date valide nella seconda colonna
             df = df[df.iloc[:, 1].apply(is_valid_date)].copy()
            
-           if apply_filters:
+            if apply_filters:
                 df = df[~df.iloc[:, 9].astype(str).isin([
                     '14 - Cedole, dividendi e premi estratti',
                     '16 - Commissioni',
