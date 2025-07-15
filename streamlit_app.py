@@ -9,6 +9,8 @@ uploaded_files = st.file_uploader(
     "Carica uno o più file Excel", type=["xlsx"], accept_multiple_files=True
 )
 
+apply_filters = st.checkbox("🔍 Filtra righe non utili (cedole, rimborsi, commissioni, ecc.)", value=True)
+
 def is_valid_date(val):
     try:
         datetime.strptime(str(val), "%d.%m.%Y")
@@ -27,8 +29,15 @@ if uploaded_files:
             # Filtra righe con date valide nella seconda colonna
             df = df[df.iloc[:, 1].apply(is_valid_date)].copy()
            
-            # Poi filtra
-            df = df[df.iloc[:, 9].astype(str) != '14 - Cedole, dividendi e premi estratti'].copy()
+           if apply_filters:
+                df = df[~df.iloc[:, 9].astype(str).isin([
+                    '14 - Cedole, dividendi e premi estratti',
+                    '16 - Commissioni',
+                    '19 - Imposte e tasse',
+                    '83 - Sottoscrizione titoli e/o fondi comuni',
+                    'ZH - Rimborso titoli e/o fondi comuni'
+            ])].copy()
+
             
             # Converte date
             df.iloc[:, 1] = df.iloc[:, 1].apply(
@@ -85,4 +94,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.1.2 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.2.0 – Ultimo aggiornamento: Luglio 2025")
