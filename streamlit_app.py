@@ -81,6 +81,7 @@ if uploaded_files:
     # Unione e visualizzazione dei risultati
     if all_dfs:
         df_totale = pd.concat(all_dfs, ignore_index=True)
+        df_totale = df_totale.drop_duplicates()
         st.success(f"✅ File elaborati correttamente: {len(all_dfs)}")
         st.subheader("📊 Tabella aggregata")
         st.dataframe(df_totale.head())
@@ -94,4 +95,4 @@ if uploaded_files:
             st.download_button("📥 Scarica Excel", f, file_name=output_file)
 
 st.markdown("---")
-st.caption("🔧 Versione: v1.2.1 – Ultimo aggiornamento: Luglio 2025")
+st.caption("🔧 Versione: v1.2.2 – Ultimo aggiornamento: Luglio 2025")
